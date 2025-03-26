@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloteAuto.Views.TripJournalPage"
+             Title="Jurnal Curse">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Filtrare după vehicul:" />
+            <Entry x:Name="filterEntry" Placeholder="ex: Dacia Logan" />
+
+            <Button Text="Caută" Clicked="OnFilterClicked" />
+            <Button Text="Export JSON" Clicked="OnExportClicked" BackgroundColor="#007ACC" TextColor="White" />
+            <Button Text="Export XML" Clicked="OnExportXmlClicked" BackgroundColor="#4CAF50" TextColor="White" />
+            <Button Text="Trimite/Distribuie fișier JSON" Clicked="OnShareJsonClicked" BackgroundColor="#FF9800" TextColor="White" />
+
+            <CollectionView x:Name="tripCollection" Margin="0,20,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Înlocuim Frame cu Border -->
+                        <Border
+    Stroke="{AppThemeBinding Light=Gray, Dark=#444}"
+    BackgroundColor="{AppThemeBinding Light={StaticResource CardBackgroundLight}, Dark={StaticResource CardBackgroundDark}}"
+    StrokeThickness="1"
+    Padding="15"
+    Margin="10"
+    StrokeShape="RoundRectangle 15">
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Date, StringFormat='📅 {0:dd MMM yyyy}'}" FontAttributes="Bold" />
+                                <Label Text="{Binding VehicleName, StringFormat='🚗 {0}'}" />
+                                <Label Text="{Binding Purpose, StringFormat='📝 {0}'}" />
+                                <Label Text="{Binding Distance, StringFormat='📍 Distanță: {0} km'}" />
+                                <Label Text="{Binding EstimatedFuel, StringFormat='⛽ Consum estimat: {0:F1} L'}" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

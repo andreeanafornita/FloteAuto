@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloteAuto.Views.LogTripPage"
+             Title="LogTripPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Vehicul" />
+            <Entry x:Name="vehicleEntry" Placeholder="ex: Dacia Logan" />
+
+            <Label Text="Data" />
+            <DatePicker x:Name="datePicker" />
+
+            <Label Text="Km Start" />
+            <Entry x:Name="kmStartEntry" Keyboard="Numeric" />
+
+            <Label Text="Km Stop" />
+            <Entry x:Name="kmEndEntry" Keyboard="Numeric" />
+
+            <Label Text="Scop cursă" />
+            <Editor x:Name="purposeEditor" AutoSize="TextChanges" />
+
+            <Button Text="Salvează cursa" Clicked="OnSaveClicked" BackgroundColor="{StaticResource PrimaryColor}" TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

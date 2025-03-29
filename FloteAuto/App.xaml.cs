@@ -1,4 +1,6 @@
-﻿namespace FloteAuto
+﻿using FloteAuto.Services;
+
+namespace FloteAuto
 {
     public partial class App : Application
     {

@@ -9,5 +9,7 @@
     <TabBar>
         <ShellContent Title="Log Cursă" ContentTemplate="{DataTemplate views:LogTripPage}" />
         <ShellContent Title="Jurnal Curse" ContentTemplate="{DataTemplate views:TripJournalPage}" />
+        <ShellContent Title="Detalii Vehicule" ContentTemplate="{DataTemplate views:VehicleDetailsPage}" />
+        <ShellContent Title="Lista Vehicule" ContentTemplate="{DataTemplate views:VehicleListPage}" />
     </TabBar>
 </Shell>

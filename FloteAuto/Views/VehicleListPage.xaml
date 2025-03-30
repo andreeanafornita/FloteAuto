@@ -4,24 +4,61 @@
              x:Class="FloteAuto.Views.VehicleListPage"
              Title="Lista Vehicule">
 
-    <StackLayout Padding="20" Spacing="10">
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
 
-        <CollectionView x:Name="VehicleListView" SelectionMode="Single" SelectionChanged="OnVehicleSelected">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="10" Margin="5" BorderColor="Gray" CornerRadius="10" HasShadow="True">
-                        <StackLayout>
-                            <Label Text="{Binding NumarInmatriculare}" FontSize="18" FontAttributes="Bold" TextColor="DarkGreen" />
-                            <Label Text="{Binding Marca}" FontSize="16" TextColor="Blue" />
-                            <Label Text="{Binding Model}" FontSize="14" TextColor="Green" />
-                            <Label Text="{Binding DataExpirareITP, StringFormat='ITP Expiră: {0:dd/MM/yyyy}'}" FontSize="12" TextColor="Blue" />
-                            <Label Text="{Binding DataExpirareActe, StringFormat='Acte Expiră: {0:dd/MM/yyyy}'}" FontSize="12" TextColor="Green" />
+            <!-- Căsuță de căutare -->
+            <SearchBar Placeholder="Caută vehicul..." 
+                       TextChanged="OnSearchTextChanged"
+                       FontSize="14"
+                       BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333333}"
+                       TextColor="White"
+                       PlaceholderColor="LightGray"
+                       Margin="0,0,0,10"/>
 
-                            <Button Text="Șterge" Clicked="OnDeleteClicked" BackgroundColor="Maroon" TextColor="Red" FontSize="12" Padding="5" Margin="0" HorizontalOptions="Start" />
-                        </StackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
+            <!-- Listă de vehicule -->
+            <CollectionView x:Name="VehicleListView" SelectionChanged="OnVehicleSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="{AppThemeBinding Light=Gray, Dark=#444444}" 
+                               CornerRadius="10" Padding="10"
+                               BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2C}" 
+                               HasShadow="True">
+                            <HorizontalStackLayout Spacing="15" VerticalOptions="Center">
+
+                                <!-- Imaginea vehiculului -->
+                                <Image Source="{Binding ImagePath}" HeightRequest="80" WidthRequest="80"
+                                       Aspect="AspectFill" BackgroundColor="#555555"/>
+
+                                <VerticalStackLayout Spacing="5">
+
+                                    <!-- Informații despre vehicul -->
+                                    <Label Text="{Binding NumarInmatriculare}" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="{Binding Marca}" FontSize="14" TextColor="LightGray"/>
+                                    <Label Text="{Binding Model}" FontSize="14" TextColor="LightGray"/>
+
+                                    <HorizontalStackLayout Spacing="10">
+                                        <!-- Buton pentru selectarea unei imagini -->
+                                        <Button Text="📷" Clicked="OnSelectImageClicked"
+                                                BackgroundColor="#007ACC" TextColor="White"
+                                                WidthRequest="40" HeightRequest="40"
+                                                CornerRadius="20" FontSize="14"/>
+
+                                        <!-- Buton pentru ștergere -->
+                                        <Button Text="🗑️" Clicked="OnDeleteClicked"
+                                                BackgroundColor="Red" TextColor="White"
+                                                WidthRequest="40" HeightRequest="40"
+                                                CornerRadius="20" FontSize="14"/>
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

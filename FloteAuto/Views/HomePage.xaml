@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloteAuto.Views.HomePage"
+             Title="Home">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="⚙️" Clicked="SettingsClicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="*, Auto">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="40" VerticalOptions="Center">
+            <Button Text="Adauga masina" 
+                    FontSize="20" 
+                    Clicked="CreateCarClicked"
+                    BackgroundColor="#EA3A50" 
+                    TextColor="White"/>
+
+            <Button Text="Adauga cursa" 
+                    FontSize="20" 
+                    Clicked="CreateTripClicked"
+                    BackgroundColor="#189BA2" 
+                    TextColor="White"/>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1" BackgroundColor="#549E47" HeightRequest="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            
+            <Button Grid.Column="0" 
+                    Text="📜 Istoric curse" 
+                    Clicked="TripHistoryClicked"
+                    BackgroundColor="Transparent" />
+
+            
+            <Button Grid.Column="1" 
+                    Text="🗺 Harta" 
+                    Clicked="MapClicked"
+                    BackgroundColor="Transparent" />
+
+            
+            <Button Grid.Column="2" 
+                    Text="🚗 Lista" 
+                    Clicked="CarListClicked"
+                    BackgroundColor="Transparent" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

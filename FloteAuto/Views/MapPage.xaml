@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloteAuto.Views.MapPage"
+             Title="MapPage">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <HorizontalStackLayout Grid.Row="0" Padding="10">
+            <Entry x:Name="LocateEntry" Placeholder="ex: B 999 AAA" WidthRequest="200"/>
+            <Button Text="Cauta" Clicked="LocateButtonClicked"/>
+        </HorizontalStackLayout>
+
+        <WebView x:Name="MapWebView" Grid.Row="1" Source="Resources/Raw/LeafletMap.html"/>
+    </Grid>
+
+
+</ContentPage>

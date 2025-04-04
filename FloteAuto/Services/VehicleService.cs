@@ -29,7 +29,27 @@ namespace FloteAuto.Services
         public async Task AddVehicle(Vehicle vehicle)
         {
             await Init();
+
+            (double lat, double lon) = GenerateRandomLocation();
+            vehicle.latitudine = lat;
+            vehicle.longitudine = lon;
+
             await _db.InsertAsync(vehicle);
+        }
+
+        // Generarea unei locatii la intamplare
+        private (double, double) GenerateRandomLocation()
+        {
+            Random random = new Random();
+
+            // Granitele Romaniei
+            double minLat = 42.6, maxLat = 47.3;
+            double minLon = 20.2, maxLon = 28.8;
+
+            double latitudine = minLat + (random.NextDouble() * (maxLat - minLat));
+            double longitudine = minLon + (random.NextDouble() * (maxLon - minLon));
+
+            return (latitudine, longitudine);
         }
 
         //Sterge un vehicul

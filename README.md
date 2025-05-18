@@ -44,11 +44,6 @@ Simple. Efficient. Ready to roll. 🚦
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Frontend:** React Native & React.js
-- **Backend:** Node.js & Express
-- **Database:** MongoDB
 - **Integrations:** Google Maps API, Apple Maps API (for live tracking*)
 - **UI:** Tailwind CSS / Material UI
 
